@@ -75,7 +75,7 @@ client.urgent           #ffffff #000000 #ffffff #ffffff #ffffff
 exec_always --no-startup-id xrdb -merge ~/.Xresources
 exec_always --no-startup-id killall polybar; polybar main
 exec_always --no-startup-id killall picom; picom -b --config ~/.config/picom/picom.conf
-exec_always --no-startup-id feh --bg-scale ~/.config/rice/wallpaper/creation-of-adam.jpg
+exec_always --no-startup-id feh --bg-scale ~/.config/rice/wallpaper/creation-of-adam.png
 
 # Gaps
 gaps inner 8
