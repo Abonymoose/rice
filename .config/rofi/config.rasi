@@ -38,13 +38,14 @@ inputbar {
     background-color: @background-alt;
     text-color: @foreground;
     padding: 8px;
-    border-radius: 4px;
+    border-radius: 8px;
     children: [ entry ];
 }
 
 entry {
     background-color: transparent;
     text-color: @foreground;
+    font: "monospace 11";
     placeholder: "Search apps...";
     placeholder-color: @active;
 }
@@ -61,7 +62,7 @@ element {
     background-color: transparent;
     text-color: @foreground;
     padding: 6px;
-    border-radius: 4px;
+    border-radius: 8px;
 }
 
 element selected {
@@ -74,5 +75,6 @@ element selected {
 element-text {
     background-color: transparent;
     text-color: inherit;
+    font: "monospace 11";
     vertical-align: 0.5;
 }

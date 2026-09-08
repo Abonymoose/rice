@@ -4,7 +4,7 @@
 set $mod Mod1
 
 # Font
-font pango:monospace 10
+font pango:monospace 11
 
 # Terminal
 bindsym $mod+Return exec --no-startup-id xterm
@@ -27,17 +27,12 @@ bindsym $mod+Shift+s move down
 bindsym $mod+Shift+w move up
 bindsym $mod+Shift+d move right
 
-# Workspaces 1-10
+# Workspaces
 bindsym $mod+1 workspace 1
 bindsym $mod+2 workspace 2
 bindsym $mod+3 workspace 3
 bindsym $mod+4 workspace 4
 bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
 
 # Move to workspace
 bindsym $mod+Shift+1 move container to workspace 1
@@ -45,18 +40,15 @@ bindsym $mod+Shift+2 move container to workspace 2
 bindsym $mod+Shift+3 move container to workspace 3
 bindsym $mod+Shift+4 move container to workspace 4
 bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
 
 # Split
 bindsym $mod+h split horizontal
 bindsym $mod+v split vertical
 
-# Layout
-bindsym $mod+e layout toggle split
+# Layout: default (tiling) / stacked (full height) / tabbed
+bindsym $mod+e layout toggle split stacking tabbed
+
+# Fullscreen
 bindsym $mod+f fullscreen toggle
 
 # Floating
@@ -68,13 +60,24 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Exit i3?' -b 'Yes' 'i3-msg exit'"
 
+# Volume keys
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+# Colors (class border background text indicator child_border) - minimal B/W
+client.focused          #cccccc #000000 #ffffff #cccccc #cccccc
+client.unfocused        #333333 #000000 #cccccc #333333 #333333
+client.focused_inactive #333333 #000000 #cccccc #333333 #333333
+client.urgent           #ffffff #000000 #ffffff #ffffff #ffffff
+
 # Autostart
 exec_always --no-startup-id xrdb -merge ~/.Xresources
 exec_always --no-startup-id killall polybar; polybar main
 exec_always --no-startup-id killall picom; picom -b --config ~/.config/picom/picom.conf
 exec_always --no-startup-id feh --bg-scale ~/.config/rice/wallpaper/creation-of-adam.jpg
 
-# Settings
+# Gaps
 gaps inner 8
 gaps outer 0
 workspace_layout default
