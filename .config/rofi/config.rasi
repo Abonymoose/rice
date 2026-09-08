@@ -1,0 +1,78 @@
+configuration {
+    modi: "drun";
+    show-icons: false;
+    display-drun: "Apps";
+    drun-display-format: "{name}";
+    font: "monospace 11";
+}
+
+* {
+    background:     #000000cc;
+    background-alt: #1a1a1acc;
+    foreground:     #ffffff;
+    selected:       #ffffff;
+    active:         #cccccc;
+    urgent:         #666666;
+
+    background-color: @background;
+    text-color:        @foreground;
+    border-color:      @active;
+}
+
+window {
+    width: 30%;
+    background-color: @background;
+    border: 1px;
+    border-color: @border-color;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+mainbox {
+    background-color: transparent;
+    children: [ inputbar, listview ];
+    spacing: 10px;
+}
+
+inputbar {
+    background-color: @background-alt;
+    text-color: @foreground;
+    padding: 8px;
+    border-radius: 4px;
+    children: [ entry ];
+}
+
+entry {
+    background-color: transparent;
+    text-color: @foreground;
+    placeholder: "Search apps...";
+    placeholder-color: @active;
+}
+
+listview {
+    background-color: transparent;
+    lines: 8;
+    spacing: 4px;
+    cycle: true;
+    dynamic: true;
+}
+
+element {
+    background-color: transparent;
+    text-color: @foreground;
+    padding: 6px;
+    border-radius: 4px;
+}
+
+element selected {
+    background-color: @background-alt;
+    text-color: @selected;
+    border: 1px;
+    border-color: @border-color;
+}
+
+element-text {
+    background-color: transparent;
+    text-color: inherit;
+    vertical-align: 0.5;
+}

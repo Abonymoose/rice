@@ -1,0 +1,25 @@
+! rice - minimal B/W xterm theme, transparent background
+xterm*background: [85]#000000
+xterm*foreground: #ffffff
+xterm*cursorColor: #ffffff
+
+xterm*color0: #000000
+xterm*color1: #ffffff
+xterm*color2: #ffffff
+xterm*color3: #ffffff
+xterm*color4: #ffffff
+xterm*color5: #ffffff
+xterm*color6: #ffffff
+xterm*color7: #ffffff
+xterm*color8: #666666
+xterm*color9: #ffffff
+xterm*color10: #ffffff
+xterm*color11: #ffffff
+xterm*color12: #ffffff
+xterm*color13: #ffffff
+xterm*color14: #ffffff
+xterm*color15: #ffffff
+
+xterm*font: -xos4-terminus-medium-r-normal--14-140-72-72-c-80-iso10646-1
+xterm*faceSize: 11
+xterm*termName: xterm-256color
