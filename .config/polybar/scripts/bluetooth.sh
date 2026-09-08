@@ -1,7 +1,7 @@
 #!/bin/sh
-# Prints ON if bluetooth is powered, OFF otherwise. Requires bluetoothctl.
+# Prints BT: on/off. Requires bluetoothctl. Plain text, no icon fonts.
 if bluetoothctl show 2>/dev/null | grep -q "Powered: yes"; then
-    echo "BT ON"
+    echo "BT: on"
 else
-    echo "BT OFF"
+    echo "BT: off"
 fi

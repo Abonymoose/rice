@@ -1,7 +1,9 @@
 #!/bin/sh
-# Prints notification daemon (dunst) pause state. Requires dunstctl.
+# Prints NOTIFY: <count of waiting notifications>, or NOTIFY: off when paused.
+# Requires dunstctl. Plain text, no icon fonts.
 if dunstctl is-paused 2>/dev/null | grep -q "true"; then
-    echo "MUTED"
+    echo "NOTIFY: off"
 else
-    echo "NOTIF"
+    count=$(dunstctl count waiting 2>/dev/null)
+    echo "NOTIFY: ${count:-0}"
 fi
