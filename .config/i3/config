@@ -1,5 +1,5 @@
 # i3 config file (v4)
-# rice - minimal B/W aesthetic, Alt (Mod1) key
+# rice - dark grey/black aesthetic, Alt (Mod1) key
 
 set $mod Mod1
 
@@ -7,7 +7,7 @@ set $mod Mod1
 font pango:monospace 11
 
 # Terminal
-bindsym $mod+Return exec --no-startup-id xterm
+bindsym $mod+Return exec --no-startup-id alacritty
 
 # Rofi launcher
 bindsym $mod+space exec rofi -show drun
@@ -65,11 +65,11 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 
-# Colors (class border background text indicator child_border) - minimal B/W
-client.focused          #cccccc #000000 #ffffff #cccccc #cccccc
-client.unfocused        #333333 #000000 #cccccc #333333 #333333
-client.focused_inactive #333333 #000000 #cccccc #333333 #333333
-client.urgent           #ffffff #000000 #ffffff #ffffff #ffffff
+# Colors (class border background text indicator child_border) - dark grey/black
+client.focused          #cccccc #000000 #cccccc #cccccc #cccccc
+client.unfocused        #2a2a2a #000000 #cccccc #2a2a2a #2a2a2a
+client.focused_inactive #2a2a2a #000000 #cccccc #2a2a2a #2a2a2a
+client.urgent           #cccccc #1a1a1a #cccccc #cccccc #cccccc
 
 # Autostart
 exec_always --no-startup-id xrdb -merge ~/.Xresources

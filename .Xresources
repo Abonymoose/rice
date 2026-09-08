@@ -1,27 +1,11 @@
-! rice - minimal B/W xterm theme
-! Transparency (opacity 0.85) is applied via picom's opacity-rule, not here.
-xterm*background: #ffffff
-xterm*foreground: #000000
-xterm*cursorColor: #cccccc
-xterm*cursorBlink: true
+! rice - dark grey/black aesthetic
+! xterm has been dropped in favor of Alacritty (~/.config/alacritty/alacritty.toml).
+! Kept minimal: general X cursor/DPI settings only.
 
-xterm*color0: #000000
-xterm*color1: #333333
-xterm*color2: #333333
-xterm*color3: #333333
-xterm*color4: #333333
-xterm*color5: #333333
-xterm*color6: #333333
-xterm*color7: #cccccc
-xterm*color8: #666666
-xterm*color9: #000000
-xterm*color10: #000000
-xterm*color11: #000000
-xterm*color12: #000000
-xterm*color13: #000000
-xterm*color14: #000000
-xterm*color15: #ffffff
+Xcursor.theme: Adwaita
+Xcursor.size: 24
 
-xterm*faceName: monospace
-xterm*faceSize: 11
-xterm*font: -xos4-terminus-medium-r-normal--14-140-72-72-c-80-iso10646-1
+Xft.dpi: 96
+Xft.antialias: true
+Xft.hinting: true
+Xft.rgba: rgb

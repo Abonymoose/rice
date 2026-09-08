@@ -7,12 +7,12 @@ configuration {
 }
 
 * {
-    background:     #000000cc;
-    background-alt: #1a1a1acc;
-    foreground:     #ffffff;
-    selected:       #ffffff;
+    background:     #d9000000;
+    background-alt: #d92a2a2a;
+    foreground:     #cccccc;
+    selected:       #cccccc;
     active:         #cccccc;
-    urgent:         #666666;
+    urgent:         #cccccc;
 
     background-color: @background;
     text-color:        @foreground;
