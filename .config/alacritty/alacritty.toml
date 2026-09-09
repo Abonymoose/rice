@@ -3,7 +3,7 @@
 [window]
 opacity = 0.85
 padding = { x = 8, y = 8 }
-decorations = "none"
+decorations = "full"
 
 [font]
 size = 12
