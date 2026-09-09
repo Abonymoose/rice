@@ -1,0 +1,23 @@
+# rice - alacritty config, unified with the i3/polybar B/W minimal theme
+
+[window]
+opacity = 0.85
+padding = { x = 8, y = 8 }
+decorations = "none"
+
+[font]
+size = 12
+
+[font.normal]
+family = "monospace"
+
+[colors.primary]
+background = "#000000"
+foreground = "#cccccc"
+
+[colors.cursor]
+text = "#000000"
+cursor = "#cccccc"
+
+[cursor]
+style = { shape = "Block", blinking = "On" }
