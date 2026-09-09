@@ -1,0 +1,74 @@
+# i3 config file (v4)
+# rice - Void Linux i3 setup, Phase 1: Foundation
+
+set $mod Mod1
+
+# Font used for window titles
+font pango:monospace 10
+
+# Start a terminal
+bindsym $mod+Return exec --no-startup-id alacritty
+
+# Launch apps with rofi
+bindsym $mod+space exec rofi -show drun
+
+# Kill focused window
+bindsym $mod+Shift+q kill
+
+# Change focus (WASD: left/down/up/right)
+bindsym $mod+a focus left
+bindsym $mod+s focus down
+bindsym $mod+w focus up
+bindsym $mod+d focus right
+
+# Move focused window (WASD: left/down/up/right)
+bindsym $mod+Shift+a move left
+bindsym $mod+Shift+s move down
+bindsym $mod+Shift+w move up
+bindsym $mod+Shift+d move right
+
+# Switch to workspace
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+
+# Move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+
+# Split containers
+bindsym $mod+h split horizontal
+bindsym $mod+v split vertical
+
+# Toggle fullscreen for the focused container
+bindsym $mod+f fullscreen toggle
+
+# Toggle floating for the focused window
+bindsym $mod+Shift+space floating toggle
+
+# Reload the config file
+bindsym $mod+Shift+c reload
+
+# Restart i3 in place (preserves layout/session)
+bindsym $mod+Shift+r restart
+
+# Exit i3 (log out), with a confirmation prompt
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Exit i3?' -b 'Yes' 'i3-msg exit'"
+
+# Autostart: merge X resources, launch the bar, launch the compositor,
+# and set the wallpaper
+exec_always --no-startup-id xrdb -merge ~/.Xresources
+exec_always --no-startup-id killall polybar; polybar main
+exec_always --no-startup-id killall picom; picom -b --config ~/.config/picom/picom.conf
+exec_always --no-startup-id feh --bg-scale ~/.config/wallpaper/creation-of-adam.png
+
+# Gaps between windows
+gaps inner 8
+gaps outer 0
+
+# No i3bar - polybar replaces it
