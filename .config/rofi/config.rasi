@@ -19,9 +19,8 @@ configuration {
 
 window {
     width: 30%;
-    height: auto;
     background-color: @background;
-    border: 1px;
+    border-width: 1px;
     border-color: @border-color;
     border-radius: 8px;
     padding: 10px;
