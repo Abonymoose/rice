@@ -7,7 +7,7 @@ configuration {
 }
 
 * {
-    background:     #d91a1a1a;
+    background:     #1a1a1ad9;
     background-alt: #2a2a2a;
     foreground:     #cccccc;
     selected:       #cccccc;
@@ -54,6 +54,7 @@ listview {
     spacing: 4px;
     cycle: true;
     dynamic: true;
+    scrollbar: false;
 }
 
 element {
@@ -68,6 +69,37 @@ element selected {
     text-color: @selected;
     border: 1px;
     border-color: @border-color;
+}
+
+/* rofi's built-in default theme defines the more specific
+   "element selected.<state>" selectors (using Solarized blue/red/tan
+   variables), which win over the generic "element selected" rule
+   above for the actual runtime state of a highlighted entry. These
+   overrides pin every state to the B/W palette. */
+element selected.normal {
+    background-color: @background-alt;
+    text-color: @selected;
+}
+
+element selected.active {
+    background-color: @background-alt;
+    text-color: @selected;
+}
+
+element selected.urgent {
+    background-color: @background-alt;
+    text-color: @selected;
+}
+
+/* Same issue for unselected rows: rofi alternates "normal" and
+   "alternate" row states for zebra-striping, and the base theme's
+   alternate.* selectors default to a cream/tan background. Pin them
+   transparent (same as the plain "element" rule) so every row reads
+   as flat B/W regardless of index or urgency state. */
+element normal.normal, element normal.active, element normal.urgent,
+element alternate.normal, element alternate.active, element alternate.urgent {
+    background-color: transparent;
+    text-color: @foreground;
 }
 
 element-text {
