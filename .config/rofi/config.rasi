@@ -7,20 +7,19 @@ configuration {
 }
 
 * {
-    background:     #6d1a1a1a;
+    background:     #1a1a1ad9;
     background-alt: #2a2a2a;
     foreground:     #cccccc;
     border-color:   #2a2a2a;
 
     background-color: @background;
-    text-color:       @foreground;
-    font:             "monospace 11";
+    text-color:        @foreground;
 }
 
 window {
     width: 30%;
     background-color: @background;
-    border: 1px;
+    border-width: 1px;
     border-color: @border-color;
     border-radius: 8px;
     padding: 10px;
@@ -35,58 +34,41 @@ mainbox {
 inputbar {
     background-color: @background-alt;
     text-color: @foreground;
-    border: 1px;
-    border-color: @border-color;
+    padding: 8px;
     border-radius: 8px;
-    padding: 10px;
-    spacing: 10px;
     children: [ entry ];
 }
 
 entry {
     background-color: transparent;
     text-color: @foreground;
+    font: "monospace 11";
     placeholder: "Search apps...";
-    /* Dimmed variant of @foreground, not @background-alt - placeholder
-       text on an @background-alt input field must not match it. */
-    placeholder-color: #cccccc99;
+    placeholder-color: @foreground;
 }
 
 listview {
     background-color: transparent;
     lines: 8;
-    /* Deliberately smaller than the 10px padding standard: this is the
-       gap between list rows, not padding inside a container, and 10px
-       here would read as sparse rather than clean. */
-    spacing: 6px;
+    spacing: 4px;
     cycle: true;
     dynamic: true;
     scrollbar: false;
+    border: 0px;
 }
 
 element {
     background-color: transparent;
     text-color: @foreground;
-    padding: 10px;
+    padding: 6px;
     border-radius: 8px;
-}
-
-element-icon {
-    size: 0;
-}
-
-element-text {
-    background-color: transparent;
-    text-color: inherit;
-    vertical-align: 0.5;
 }
 
 /* rofi's built-in default theme defines the more specific
    "element selected.<state>" / "element (normal|alternate).<state>"
-   selectors (using Solarized blue/red/tan variables), which win over
-   a plain "element"/"element selected" rule for the actual runtime
-   state of a row. These overrides pin every state to the B/W palette,
-   selected and unselected alike. */
+   selectors, which win over a plain "element"/"element selected"
+   rule for the actual runtime state of a row - without these, rows
+   leak the default theme's colors instead of this palette. */
 element selected,
 element selected.normal, element selected.active, element selected.urgent {
     background-color: @background-alt;
@@ -101,26 +83,26 @@ element alternate.normal, element alternate.active, element alternate.urgent {
     text-color: @foreground;
 }
 
-/* Mode switcher (the tab bar for switching between multiple `-modi`,
-   e.g. drun/run/window) - polished to the same standard as the app
-   list, and to prevent the same kind of default-theme leak fixed
-   above for `element`, in case more modi are ever enabled. */
+element-text {
+    background-color: transparent;
+    text-color: inherit;
+    font: "monospace 11";
+    vertical-align: 0.5;
+}
+
+/* Mode switcher renders by default even with a single modi configured
+   (a plain "Apps" tab) - kept minimal: transparent background, plain
+   text, no border/radius/inversion. */
 mode-switcher {
     background-color: transparent;
-    spacing: 10px;
 }
 
 button {
-    background-color: @background-alt;
+    background-color: transparent;
     text-color: @foreground;
-    border-radius: 8px;
-    padding: 10px;
-    horizontal-align: 0.5;
 }
 
 button selected {
-    background-color: @foreground;
-    text-color: @background-alt;
-    border: 1px;
-    border-color: @border-color;
+    background-color: @background-alt;
+    text-color: @foreground;
 }
