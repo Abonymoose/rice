@@ -12,6 +12,10 @@ bindsym $mod+Return exec --no-startup-id alacritty
 # Launch apps with rofi
 bindsym $mod+space exec rofi -show drun
 
+# Bluetooth / volume rofi menus
+bindsym $mod+b exec rofi -show bluetooth -modi "bluetooth:~/.config/rofi/scripts/bluetooth-menu.sh"
+bindsym $mod+Shift+v exec rofi -show volume -modi "volume:~/.config/rofi/scripts/volume-menu.sh"
+
 # Kill focused window
 bindsym $mod+Shift+q kill
 
