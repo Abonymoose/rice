@@ -9,6 +9,9 @@ font pango:monospace 10
 # Start a terminal
 bindsym $mod+Return exec --no-startup-id alacritty
 
+# Open lf (terminal file manager) in a new terminal
+bindsym $mod+e exec alacritty -e lf
+
 # Launch apps with rofi
 bindsym $mod+space exec rofi -show drun
 
