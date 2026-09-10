@@ -1,11 +1,14 @@
 #!/bin/sh
 # Bluetooth menu, 100% rofi (no zenity/GTK). Uses the same config.rasi
 # as the app launcher, so colors/opacity/font are identical, not
-# approximated. Bound to $mod+b in i3, and discoverable via rofi drun as
+# approximated. Bound to $mod+Shift+b in i3, and discoverable via rofi drun as
 # "Bluetooth Manager" through bluetooth-manager.desktop.
 
 ROFI_CONF="$HOME/.config/rofi/config.rasi"
 PROMPT="Bluetooth"
+
+# Auto-power on Bluetooth if needed
+bluetoothctl power on 2>/dev/null
 
 # Shows a plain rofi -dmenu list built from the given lines; prints
 # the selected line, or nothing if cancelled.
