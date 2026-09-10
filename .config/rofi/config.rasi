@@ -27,7 +27,7 @@ window {
 
 mainbox {
     background-color: transparent;
-    children: [ inputbar, listview, mode-switcher ];
+    children: [ inputbar, listview ];
     spacing: 10px;
 }
 
@@ -88,21 +88,4 @@ element-text {
     text-color: inherit;
     font: "monospace 11";
     vertical-align: 0.5;
-}
-
-/* Mode switcher renders by default even with a single modi configured.
-   Styled as an inset rounded pill (padding + radius 8, matching the
-   inputbar/element treatment) rather than a full-bleed unlabeled
-   slab - dark grey background, plain grey text, no borders. */
-mode-switcher {
-    background-color: transparent;
-    spacing: 10px;
-}
-
-button, button selected {
-    background-color: @background-alt;
-    text-color: @foreground;
-    padding: 8px;
-    border-radius: 8px;
-    horizontal-align: 0.5;
 }
