@@ -12,9 +12,10 @@ bindsym $mod+Return exec --no-startup-id alacritty
 # Launch apps with rofi
 bindsym $mod+space exec rofi -show drun
 
-# Bluetooth / volume menus
-bindsym $mod+b exec ~/.config/rofi/scripts/bluetooth-gui.sh
-bindsym $mod+Shift+v exec rofi -show volume -modi "volume:~/.config/rofi/scripts/volume-menu.sh"
+# Bluetooth / volume menus (also discoverable via rofi drun as
+# "Bluetooth Manager" / "Volume Manager")
+bindsym $mod+b exec ~/.config/rofi/scripts/bluetooth-menu.sh
+bindsym $mod+Shift+v exec ~/.config/rofi/scripts/volume-menu.sh
 
 # Kill focused window
 bindsym $mod+Shift+q kill
@@ -70,13 +71,6 @@ exec_always --no-startup-id xrdb -merge ~/.Xresources
 exec_always --no-startup-id killall polybar; polybar main
 exec_always --no-startup-id killall -q picom 2>/dev/null; sleep 0.5; picom -b --config ~/.config/picom/picom.conf
 exec_always --no-startup-id feh --bg-scale ~/.config/wallpaper/creation-of-adam.png
-
-# Window rules
-# Zenity dialogs (bluetooth-gui.sh) use WM_CLASS "zenity", verified
-# via xprop - not "Zenity". Strip i3's own border/titlebar so the
-# dialog isn't wrapped in mismatched WM chrome; picom's own rounding
-# and our GTK theme are the only visual treatment.
-for_window [class="zenity"] border pixel 0
 
 # Gaps between windows
 gaps inner 8

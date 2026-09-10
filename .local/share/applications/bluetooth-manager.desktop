@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Bluetooth Manager
+Comment=Scan, connect, disconnect, and power Bluetooth via rofi
+Exec=sh -c "$HOME/.config/rofi/scripts/bluetooth-menu.sh"
+Terminal=false
+Categories=System;
+NoDisplay=false

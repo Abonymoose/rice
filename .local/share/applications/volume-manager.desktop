@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Volume Manager
+Comment=Set volume (0-100) via rofi
+Exec=sh -c "$HOME/.config/rofi/scripts/volume-menu.sh"
+Terminal=false
+Categories=System;
+NoDisplay=false
