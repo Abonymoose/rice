@@ -1,7 +1,7 @@
 configuration {
     modi: "drun";
     show-icons: false;
-    display-drun: "";
+    display-drun: "Apps";
     drun-display-format: "{name}";
     font: "monospace 11";
 }
@@ -90,20 +90,19 @@ element-text {
     vertical-align: 0.5;
 }
 
-/* Mode switcher renders by default even with a single modi configured
-   (display-drun is "" so the tab has no label). Kept minimal: dark
-   transparent background (window bg shows through), plain grey text,
-   no borders. */
+/* Mode switcher renders by default even with a single modi configured.
+   Styled as an inset rounded pill (padding + radius 8, matching the
+   inputbar/element treatment) rather than a full-bleed unlabeled
+   slab - dark grey background, plain grey text, no borders. */
 mode-switcher {
     background-color: transparent;
+    spacing: 10px;
 }
 
-button {
-    background-color: transparent;
-    text-color: @foreground;
-}
-
-button selected {
+button, button selected {
     background-color: @background-alt;
     text-color: @foreground;
+    padding: 8px;
+    border-radius: 8px;
+    horizontal-align: 0.5;
 }
