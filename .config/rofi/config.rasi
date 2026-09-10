@@ -7,20 +7,20 @@ configuration {
 }
 
 * {
-    background:     #1a1a1ad9;
+    background:     #6d1a1a1a;
     background-alt: #2a2a2a;
     foreground:     #cccccc;
-    selected:       #cccccc;
     border-color:   #2a2a2a;
 
     background-color: @background;
-    text-color:        @foreground;
+    text-color:       @foreground;
+    font:             "monospace 11";
 }
 
 window {
     width: 30%;
     background-color: @background;
-    border-width: 1px;
+    border: 1px;
     border-color: @border-color;
     border-radius: 8px;
     padding: 10px;
@@ -28,30 +28,37 @@ window {
 
 mainbox {
     background-color: transparent;
-    children: [ inputbar, listview ];
+    children: [ inputbar, listview, mode-switcher ];
     spacing: 10px;
 }
 
 inputbar {
     background-color: @background-alt;
     text-color: @foreground;
-    padding: 8px;
+    border: 1px;
+    border-color: @border-color;
     border-radius: 8px;
+    padding: 10px;
+    spacing: 10px;
     children: [ entry ];
 }
 
 entry {
     background-color: transparent;
     text-color: @foreground;
-    font: "monospace 11";
     placeholder: "Search apps...";
-    placeholder-color: @background-alt;
+    /* Dimmed variant of @foreground, not @background-alt - placeholder
+       text on an @background-alt input field must not match it. */
+    placeholder-color: #cccccc99;
 }
 
 listview {
     background-color: transparent;
     lines: 8;
-    spacing: 4px;
+    /* Deliberately smaller than the 10px padding standard: this is the
+       gap between list rows, not padding inside a container, and 10px
+       here would read as sparse rather than clean. */
+    spacing: 6px;
     cycle: true;
     dynamic: true;
     scrollbar: false;
@@ -60,51 +67,60 @@ listview {
 element {
     background-color: transparent;
     text-color: @foreground;
-    padding: 6px;
+    padding: 10px;
     border-radius: 8px;
 }
 
-element selected {
+element-icon {
+    size: 0;
+}
+
+element-text {
+    background-color: transparent;
+    text-color: inherit;
+    vertical-align: 0.5;
+}
+
+/* rofi's built-in default theme defines the more specific
+   "element selected.<state>" / "element (normal|alternate).<state>"
+   selectors (using Solarized blue/red/tan variables), which win over
+   a plain "element"/"element selected" rule for the actual runtime
+   state of a row. These overrides pin every state to the B/W palette,
+   selected and unselected alike. */
+element selected,
+element selected.normal, element selected.active, element selected.urgent {
     background-color: @background-alt;
-    text-color: @selected;
+    text-color: @foreground;
     border: 1px;
     border-color: @border-color;
 }
 
-/* rofi's built-in default theme defines the more specific
-   "element selected.<state>" selectors (using Solarized blue/red/tan
-   variables), which win over the generic "element selected" rule
-   above for the actual runtime state of a highlighted entry. These
-   overrides pin every state to the B/W palette. */
-element selected.normal {
-    background-color: @background-alt;
-    text-color: @selected;
-}
-
-element selected.active {
-    background-color: @background-alt;
-    text-color: @selected;
-}
-
-element selected.urgent {
-    background-color: @background-alt;
-    text-color: @selected;
-}
-
-/* Same issue for unselected rows: rofi alternates "normal" and
-   "alternate" row states for zebra-striping, and the base theme's
-   alternate.* selectors default to a cream/tan background. Pin them
-   transparent (same as the plain "element" rule) so every row reads
-   as flat B/W regardless of index or urgency state. */
 element normal.normal, element normal.active, element normal.urgent,
 element alternate.normal, element alternate.active, element alternate.urgent {
     background-color: transparent;
     text-color: @foreground;
 }
 
-element-text {
+/* Mode switcher (the tab bar for switching between multiple `-modi`,
+   e.g. drun/run/window) - polished to the same standard as the app
+   list, and to prevent the same kind of default-theme leak fixed
+   above for `element`, in case more modi are ever enabled. */
+mode-switcher {
     background-color: transparent;
-    text-color: inherit;
-    font: "monospace 11";
-    vertical-align: 0.5;
+    spacing: 10px;
+}
+
+button {
+    background-color: @background-alt;
+    text-color: @foreground;
+    border-radius: 8px;
+    padding: 10px;
+    horizontal-align: 0.5;
+}
+
+button selected {
+    background-color: @foreground;
+    text-color: @background-alt;
+    border: 1px;
+    border-color: @border-color;
 }
