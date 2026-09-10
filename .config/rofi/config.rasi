@@ -1,7 +1,7 @@
 configuration {
     modi: "drun";
     show-icons: false;
-    display-drun: "Apps";
+    display-drun: "";
     drun-display-format: "{name}";
     font: "monospace 11";
 }
@@ -91,8 +91,9 @@ element-text {
 }
 
 /* Mode switcher renders by default even with a single modi configured
-   (a plain "Apps" tab) - kept minimal: transparent background, plain
-   text, no border/radius/inversion. */
+   (display-drun is "" so the tab has no label). Kept minimal: dark
+   transparent background (window bg shows through), plain grey text,
+   no borders. */
 mode-switcher {
     background-color: transparent;
 }
