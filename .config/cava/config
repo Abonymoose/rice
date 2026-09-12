@@ -1,5 +1,6 @@
 [input]
 method = pulse
+source = auto
 
 [output]
 method = ncurses
