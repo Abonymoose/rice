@@ -22,6 +22,13 @@ ln -sf ~/.rice/.config/picom ~/.config/picom
 ln -sf ~/.rice/.config/alacritty ~/.config/alacritty
 ln -sf ~/.rice/.config/cava ~/.config/cava
 ln -sf ~/.rice/.Xresources ~/.Xresources
+ln -sf ~/.rice/wallpaper ~/.config/wallpaper
+mkdir -p ~/.local/share/applications
+ln -sf ~/.rice/.local/share/applications/bluetooth-manager.desktop ~/.local/share/applications/
+ln -sf ~/.rice/.local/share/applications/volume-manager.desktop ~/.local/share/applications/
+
+# Make scripts executable
+chmod +x ~/.config/rofi/scripts/*.sh
 
 # Install dependencies
 sudo xbps-install -S i3 polybar rofi picom alacritty feh cava cmus lf firefox pulseaudio htop ncdu bluez bluez-alsa xorg-server xorg-input-libinput
