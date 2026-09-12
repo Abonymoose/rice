@@ -20,6 +20,11 @@ bindsym $mod+space exec rofi -show drun
 bindsym $mod+Shift+b exec ~/.config/rofi/scripts/bluetooth-menu.sh
 bindsym $mod+Shift+v exec ~/.config/rofi/scripts/volume-menu.sh
 
+# Apps
+bindsym $mod+b exec firefox
+bindsym $mod+m exec mpv --fullscreen
+bindsym $mod+i exec imv
+
 # Kill focused window
 bindsym $mod+w kill
 
