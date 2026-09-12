@@ -1,6 +1,6 @@
 [input]
-method = pulse
-source = auto
+method = fifo
+source = /tmp/mpd.fifo
 
 [output]
 method = ncurses
