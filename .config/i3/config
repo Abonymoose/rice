@@ -79,6 +79,8 @@ exec_always --no-startup-id xrdb -merge ~/.Xresources
 exec_always --no-startup-id killall polybar; polybar main
 exec_always --no-startup-id killall -q picom 2>/dev/null; sleep 0.5; picom -b --config ~/.config/picom/picom.conf
 exec_always --no-startup-id feh --bg-scale ~/.config/wallpaper/creation-of-adam.png
+exec_always --no-startup-id pipewire &
+exec_always --no-startup-id wireplumber &
 
 # Gaps between windows
 gaps inner 8
