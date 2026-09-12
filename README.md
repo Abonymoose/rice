@@ -42,6 +42,7 @@ All bindings use `$mod` = **Mod4** (Super key) unless noted otherwise.
 | `Control+Shift+Escape` | Open htop (system monitor) in Alacritty |
 | `$mod+Shift+b` | Bluetooth menu (scan/connect/disconnect/power) |
 | `$mod+Shift+v` | Volume menu (set 0-100) |
+| `$mod+Shift+p` | Power menu (logout/restart/shutdown/suspend) |
 | `$mod+w` | Kill focused window |
 | `$mod+Left/Down/Up/Right` | Move focus |
 | `$mod+Shift+Left/Down/Up/Right` | Move focused window |
@@ -54,9 +55,6 @@ All bindings use `$mod` = **Mod4** (Super key) unless noted otherwise.
 | `$mod+Shift+c` | Reload i3 config |
 | `$mod+Shift+r` | Restart i3 in place |
 | `$mod+q` | Exit i3 (with confirmation prompt) |
-
-There is no dedicated power-menu keybind yet — launch it directly with
-`~/.config/rofi/scripts/power-menu.sh`, or through your app launcher.
 
 ## Installation
 

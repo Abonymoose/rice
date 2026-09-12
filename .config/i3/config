@@ -15,10 +15,11 @@ bindsym $mod+e exec alacritty -e lf
 # Launch apps with rofi
 bindsym $mod+space exec rofi -show drun
 
-# Bluetooth / volume menus (also discoverable via rofi drun as
+# Bluetooth / volume / power menus (also discoverable via rofi drun as
 # "Bluetooth Manager" / "Volume Manager")
 bindsym $mod+Shift+b exec ~/.config/rofi/scripts/bluetooth-menu.sh
 bindsym $mod+Shift+v exec ~/.config/rofi/scripts/volume-menu.sh
+bindsym $mod+Shift+p exec ~/.config/rofi/scripts/power-menu.sh
 
 # Apps
 bindsym $mod+b exec firefox
