@@ -24,6 +24,8 @@ bindsym $mod+Shift+v exec ~/.config/rofi/scripts/volume-menu.sh
 bindsym $mod+b exec firefox
 bindsym $mod+n exec alacritty -e cmus
 bindsym $mod+a exec alacritty -e cava
+bindsym Control+Shift+Escape exec alacritty -e htop
+bindsym $mod+d exec alacritty -e ncdu
 
 # Kill focused window
 bindsym $mod+w kill
