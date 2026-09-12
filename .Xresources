@@ -1,0 +1,10 @@
+! rice - X11 resources
+! Cursor and DPI settings
+
+Xcursor.theme: Adwaita
+Xcursor.size: 24
+
+Xft.dpi: 96
+Xft.antialias: true
+Xft.hinting: true
+Xft.rgba: rgb
